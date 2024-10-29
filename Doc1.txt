@@ -1,2 +1,66 @@
 Hola mundo
 ¿Cómo estas?
+1 DaMpackage Calculadora;
+import java.util.Scanner;
+
+public class MayorMenorMedia {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        int cantidad = 0;
+        double mayor = 0; 
+        double menor = 0;
+        double suma = 0;
+
+        // Solicitar la cantidad de números a introducir con manejo de excepciones
+        boolean cantidadValida = false;
+        while (!cantidadValida) {
+            try {
+                System.out.print("Introduce la cantidad de valores a introducir: ");
+                cantidad = Integer.parseInt(scanner.nextLine());
+                if (cantidad <= 0) {
+                    System.out.println("Error: La cantidad debe ser un número positivo.");
+                } else {
+                    cantidadValida = true; // Si la cantidad es válida, salimos del bucle
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Error: Debes introducir un número entero válido.");
+            }
+        }
+
+        // Solicitar los números reales con manejo de excepciones
+        for (int contador = 1; contador <= cantidad; contador++) {
+            try {
+                System.out.print("Introduce el número " + (contador) + ": ");
+                double numero = Double.parseDouble(scanner.nextLine());
+
+                // Si es el primer número válido, inicializamos mayor y menor
+                if (contador == 1) {
+                    mayor = numero;
+                    menor = numero;
+                }
+
+                // Actualizar mayor, menor y suma
+                if (numero > mayor) {
+                    mayor = numero;
+                }
+                if (numero < menor) {
+                    menor = numero;
+                }
+                suma += numero;
+            } catch (NumberFormatException e) {
+                System.out.println("Error: Debes introducir un número válido.");
+                contador--; // Para volver a solicitar el número en caso de error
+            }
+        }
+
+        // Calcular y mostrar la media
+        double media = suma / cantidad;
+        System.out.println("Mayor: " + mayor);
+        System.out.println("Menor: " + menor);
+        System.out.println("Media: " + media);
+p89ñioyñío-´h-iop-o
+        scanner.close();
+    }
+}
