@@ -14,7 +14,7 @@ public class MayorMenorMedia {
         double suma = 0;
 
         // Solicitar la cantidad de números a introducir con manejo de excepciones
-        boolean cantidadValida = false;
+        boolean cantidadValida = false;WEGrbgear
         while (!cantidadValida) {
             try {
                 System.out.print("Introduce la cantidad de valores a introducir: ");
